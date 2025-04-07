@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team-Yeshua - Faith Meets Fashion</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#6366f1',secondary:'#8b5cf6'},borderRadius:{'none':'0px','sm':'8px',DEFAULT:'12px','md':'16px','lg':'20px','xl':'24px','2xl':'28px','3xl':'32px','full':'9999px','button':'12px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .hero-section {
+            background-image: url('https://public.readdy.ai/ai/img_res/9a250068d07b0d289135ccbeeb739be3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .custom-checkbox:checked {
+            background-color: #6366f1;
+            border-color: #6366f1;
+        }
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 7px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #e5e7eb;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #6366f1;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="font-['Pacifico'] text-2xl text-primary">Team-Yeshua</a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium">Shop</a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium">About</a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium">Custom Design</a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium">Blog</a>
+                <a href="#" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary cursor-pointer">
+                    <i class="ri-search-line ri-xl"></i>
+                </div>
+                <div class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary cursor-pointer">
+                    <i class="ri-user-line ri-xl"></i>
+                </div>
+                <div class="w-10 h-10 flex items-center justify-center text-gray-700 hover:text-primary cursor-pointer relative">
+                    <i class="ri-shopping-cart-line ri-xl"></i>
+                    <span class="absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+                </div>
+                <button class="md:hidden w-10 h-10 flex items-center justify-center">
+                    <i class="ri-menu-line ri-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-white/90 to-white/30"></div>
+        <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Faith Meets Fashion</h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-800">Spread the message of Jesus Christ through unique and inspiring apparel that tells a story of faith, hope, and love.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#shop" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium inline-block text-center whitespace-nowrap">Shop Collection</a>
+                    <a href="#custom" class="bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 px-8 py-3 rounded-button font-medium inline-block text-center whitespace-nowrap">Custom Designs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Spreading God's word with compassion and humility, inspiring faith, and fostering deeper relationships with Christ.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-gray-700 mb-6">At Team-Yeshua, we believe in spreading God's word with compassion and humility. Our mission goes beyond business – we aim to inspire faith, encourage prayer, and foster deeper relationships with God.</p>
+                    <p class="text-gray-700 mb-6">Every purchase supports our vision of reminding people of Jesus' sacrifice, and our goal is to create a supportive community where we share testimonies, encouragement, and faith-based inspiration.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4">
+                                <i class="ri-heart-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Spreading Love</h3>
+                                <p class="text-sm text-gray-600">Sharing Christ's message through every design</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4">
+                                <i class="ri-community-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Building Community</h3>
+                                <p class="text-sm text-gray-600">Creating connections through shared faith</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4">
+                                <i class="ri-hand-heart-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Supporting Missions</h3>
+                                <p class="text-sm text-gray-600">Giving back to spread the gospel</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4">
+                                <i class="ri-creative-commons-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Creative Expression</h3>
+                                <p class="text-sm text-gray-600">Faith-inspired designs that inspire</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://public.readdy.ai/ai/img_res/1ef7824fdb8128faebf4c9ec3de6ff48.jpg" alt="Team Yeshua Community" class="w-full h-full object-cover object-top">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="shop" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Our Faith-Filled Collection</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Express your faith with our range of apparel designed to inspire and spread the message of Jesus Christ.</p>
+            </div>
+            
+            <div class="bg-primary/10 rounded-lg p-4 mb-12 flex items-center justify-center">
+                <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white mr-3">
+                    <i class="ri-price-tag-3-line"></i>
+                </div>
+                <p class="font-medium text-primary">Buy 2 items and get 10% off your entire order</p>
+            </div>
+            
+            <div class="flex flex-wrap gap-6 mb-8 justify-center">
+                <button class="bg-primary text-white px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">All Products</button>
+                <button class="bg-white text-gray-700 hover:bg-gray-100 px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">T-Shirts</button>
+                <button class="bg-white text-gray-700 hover:bg-gray-100 px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">Hoodies</button>
+                <button class="bg-white text-gray-700 hover:bg-gray-100 px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">Sweatshirts</button>
+                <button class="bg-white text-gray-700 hover:bg-gray-100 px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">Tote Bags</button>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/b9463c2a430d738859adb78585acb43e.jpg" alt="Faith T-Shirt" class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Walk By Faith T-Shirt</h3>
+                        <p class="text-gray-500 text-sm mb-2">2 Corinthians 5:7</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$29.99</span>
+                            <button class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary hover:bg-primary/20 whitespace-nowrap">
+                                <i class="ri-shopping-cart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/0081e62db33f69641099d87a7b2d4a74.jpg" alt="Faith Hoodie" class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Grace & Faith Hoodie</h3>
+                        <p class="text-gray-500 text-sm mb-2">Ephesians 2:8</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$49.99</span>
+                            <button class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary hover:bg-primary/20 whitespace-nowrap">
+                                <i class="ri-shopping-cart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/34587a0cea202ea7355ede98c8a5c5b7.jpg" alt="Faith Tote Bag" class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Faith Journey Tote Bag</h3>
+                        <p class="text-gray-500 text-sm mb-2">Proverbs 3:5-6</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$24.99</span>
+                            <button class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary hover:bg-primary/20 whitespace-nowrap">
+                                <i class="ri-shopping-cart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://public.readdy.ai/ai/img_res/9a51938003d69129fdf7377b9b920f09.jpg" alt="Faith Sweatshirt" class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Hope Anchors Sweatshirt</h3>
+                        <p class="text-gray-500 text-sm mb-2">Hebrews 6:19</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-900">$44.99</span>
+                            <button class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary hover:bg-primary/20 whitespace-nowrap">
+                                <i class="ri-shopping-cart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium whitespace-nowrap">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Design Section -->
+    <section id="custom" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Custom Designs for Your Group</h2>
+                    <p class="text-gray-700 mb-6">Need custom designs for your church group, youth ministry, or special event? We offer free design services tailored to your specific needs.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4 mt-1">
+                                <i class="ri-check-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Free Design Consultation</h3>
+                                <p class="text-sm text-gray-600">Work with our team to create the perfect faith-inspired design</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4 mt-1">
+                                <i class="ri-check-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Bulk Order Discounts</h3>
+                                <p class="text-sm text-gray-600">Special pricing for group orders of 10+ items</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4 mt-1">
+                                <i class="ri-check-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Quick Turnaround</h3>
+                                <p class="text-sm text-gray-600">From concept to delivery in as little as 2 weeks</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4 mt-1">
+                                <i class="ri-check-line ri-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold mb-1">Available on All Products</h3>
+                                <p class="text-sm text-gray-600">Apply your custom design to any product in our shop</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium whitespace-nowrap">Start Your Custom Design</a>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-8 shadow-lg">
+                    <img src="https://public.readdy.ai/ai/img_res/0b96e362681afb560be8c41fb3bf0ca4.jpg" alt="Custom Design Process" class="w-full rounded-lg mb-6">
+                    
+                    <h3 class="font-semibold text-xl mb-4">Request Your Custom Design</h3>
+                    
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="group" class="block text-sm font-medium text-gray-700 mb-1">Group/Organization</label>
+                            <input type="text" id="group" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Design Ideas</label>
+                            <textarea id="description" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium whitespace-nowrap">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loyalty Program & Offers -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <h3 class="font-semibold text-2xl mb-2">Join Our Community</h3>
+                    <p class="text-gray-600 mb-6">Subscribe to our newsletter and get 10% off your first purchase</p>
+                    
+                    <form class="mb-6">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                            <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-r-button font-medium whitespace-nowrap">Subscribe</button>
+                        </div>
+                    </form>
+                    
+                    <div class="flex items-start mb-4">
+                        <input type="checkbox" id="terms" class="custom-checkbox mr-3 mt-1">
+                        <label for="terms" class="text-sm text-gray-600">I agree to receive promotional emails and understand I can unsubscribe at any time.</label>
+                    </div>
+                    
+                    <div class="border-t border-gray-200 pt-6 mt-6">
+                        <h4 class="font-medium mb-4">Connect with us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-700">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-700">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-700">
+                                <i class="ri-twitter-x-line"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-700">
+                                <i class="ri-pinterest-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Loyalty Program Benefits</h2>
+                    <p class="text-gray-700 mb-8">Join our loyalty program and earn points with every purchase. Redeem your points for exclusive discounts, early access to new collections, and special faith-inspired gifts.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4">
+                                    <i class="ri-gift-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Disciple Level</h3>
+                                    <p class="text-sm text-gray-600">0-500 points</p>
+                                </div>
+                            </div>
+                            <ul class="text-sm text-gray-700 space-y-2">
+                                <li class="flex items-center">
+                                    <i class="ri-check-line text-primary mr-2"></i>
+                                    10% off your first purchase
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="ri-check-line text-primary mr-2"></i>
+                                    Birthday special offer
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="ri-check-line text-primary mr-2"></i>
+                                    Access to exclusive content
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full text-primary mr-4">
+                                    <i class="ri-medal-line ri-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Apostle Level</h3>
+                                    <p class="text-sm text-gray-600">501-1000 points</p>
+                                </div>
+                            </div>
+                            <ul class="text-sm text-gray-700 space-y-2">
+                                <li class="flex items-center">
+                                    <i class="ri-check-line text-primary mr-2"></i>
+                                    All Disciple benefits
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="ri-check-line text-primary mr-2"></i>
+                                    Free shipping on all orders
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="ri-check-line text-primary mr-2"></i>
+                                    Early access to new collections
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="ri-check-line text-primary mr-2"></i>
+                                    Exclusive member-only designs
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Cards Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Give the Gift of Faith</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Our eGift Cards are perfect for any occasion, allowing your loved ones to choose their own faith-inspired apparel.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://public.readdy.ai/ai/img_res/0b5d157bfd7302768354b1bc87ba4949.jpg" alt="Gift Card" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                            <span class="text-white font-bold text-xl">$25 Gift Card</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm mb-4">Perfect for birthdays, baptisms, or just to show you care.</p>
+                        <a href="#" class="block bg-primary hover:bg-primary/90 text-white text-center px-6 py-2 rounded-button font-medium whitespace-nowrap">Purchase</a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://public.readdy.ai/ai/img_res/233f7e0067606414e069782f5e2d9e7e.jpg" alt="Gift Card" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                            <span class="text-white font-bold text-xl">$50 Gift Card</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm mb-4">Share the gift of faith with friends and family members.</p>
+                        <a href="#" class="block bg-primary hover:bg-primary/90 text-white text-center px-6 py-2 rounded-button font-medium whitespace-nowrap">Purchase</a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://public.readdy.ai/ai/img_res/cefed66f0df2677b150aed11d22d0b5a.jpg" alt="Gift Card" class="w-full h-full object-cover object-top">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
+                            <span class="text-white font-bold text-xl">$100 Gift Card</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 text-sm mb-4">The perfect gift for church groups or ministry teams.</p>
+                        <a href="#" class="block bg-primary hover:bg-primary/90 text-white text-center px-6 py-2 rounded-button font-medium whitespace-nowrap">Purchase</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gray-50 rounded-lg p-8 shadow-md">
+                <h3 class="text-xl font-semibold mb-6">Custom Amount Gift Card</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <p class="text-gray-700 mb-4">Choose your own gift card amount and personalize it with a special message.</p>
+                        
+                        <form class="space-y-4">
+                            <div>
+                                <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">Gift Card Amount ($)</label>
+                                <input type="number" id="amount" min="10" step="5" value="75" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                            </div>
+                            
+                            <div>
+                                <label for="recipient" class="block text-sm font-medium text-gray-700 mb-1">Recipient's Email</label>
+                                <input type="email" id="recipient" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Personal Message</label>
+                                <textarea id="message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"></textarea>
+                            </div>
+                            
+                            <div>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="custom-checkbox mr-3">
+                                    <span class="text-sm text-gray-700">Send gift card on specific date</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-button font-medium whitespace-nowrap">Purchase Gift Card</button>
+                        </form>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h4 class="font-medium mb-4">Gift Card Preview</h4>
+                        <div class="aspect-video bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center p-6 mb-4">
+                            <div class="text-center">
+                                <div class="font-['Pacifico'] text-2xl text-primary mb-2">Team-Yeshua</div>
+                                <div class="text-3xl font-bold mb-1">$75.00</div>
+                                <div class="text-sm text-gray-600">eGift Card</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 text-sm text-gray-600">
+                            <p class="flex justify-between">
+                                <span>Delivery:</span>
+                                <span>Email</span>
+                            </p>
+                            <p class="flex justify-between">
+                                <span>Expiration:</span>
+                                <span>Never expires</span>
+                            </p>
+                            <p class="flex justify-between">
+                                <span>Redeemable:</span>
+                                <span>Online only</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Faith Stories from Our Community</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Hear how Team-Yeshua apparel has helped our customers share their faith journey.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden mr-4">
+                            <img src="https://public.readdy.ai/ai/img_res/2a5e98251e93408b5a52a2147a94e9a2.jpg" alt="Sarah Johnson" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Sarah Johnson</h3>
+                            <p class="text-sm text-gray-600">Youth Minister</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p class="text-gray-700">"Our youth group ordered custom t-shirts for our mission trip, and they turned out amazing! The quality is excellent, and the designs perfectly captured our theme. The shirts sparked so many conversations about our faith during our outreach."</p>
+                    </div>
+                    <p class="text-sm text-gray-500">April 2, 2025</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden mr-4">
+                            <img src="https://public.readdy.ai/ai/img_res/11121e8e0c84154a6478e0aaec3885eb.jpg" alt="Michael Rodriguez" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Michael Rodriguez</h3>
+                            <p class="text-sm text-gray-600">Church Volunteer</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p class="text-gray-700">"I wear my 'Walk By Faith' t-shirt almost weekly, and it's become a conversation starter at the gym and coffee shops. The subtle design is perfect - not too flashy but clearly communicates my faith. I've ordered three more designs since then!"</p>
+                    </div>
+                    <p class="text-sm text-gray-500">March 15, 2025</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden mr-4">
+                            <img src="https://public.readdy.ai/ai/img_res/8a219a3ac0f952f7236edde9e078cdd5.jpg" alt="Rebecca Thompson" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Rebecca Thompson</h3>
+                            <p class="text-sm text-gray-600">Bible Study Leader</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-half-fill"></i>
+                        </div>
+                        <p class="text-gray-700">"I purchased tote bags with a beautiful scripture design for all the ladies in my Bible study group as Christmas gifts. Everyone loved them! The quality is excellent, and they're the perfect size for carrying our Bibles and study materials."</p>
+                    </div>
+                    <p class="text-sm text-gray-500">February 28, 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="#" class="font-['Pacifico'] text-2xl text-white mb-4 inline-block">Team-Yeshua</a>
+                    <p class="text-gray-400 mb-6">Spreading the message of Jesus Christ through unique and inspiring apparel that tells a story.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full text-white">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full text-white">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full text-white">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full text-white">
+                            <i class="ri-pinterest-line"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Shop</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">T-Shirts</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Hoodies</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Sweatshirts</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tote Bags</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gift Cards</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">New Arrivals</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">About</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Our Mission</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Faith Resources</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Customer Service</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Track Order</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Team-Yeshua. All rights reserved.</p>
+                    
+                    <div class="flex items-center space-x-4">
+                        <span class="text-gray-500 text-sm">Payment Methods:</span>
+                        <div class="flex space-x-2">
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                                <i class="ri-visa-fill ri-lg"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                                <i class="ri-mastercard-fill ri-lg"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                                <i class="ri-paypal-fill ri-lg"></i>
+                            </div>
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+                                <i class="ri-apple-fill ri-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('button.md\\:hidden');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // Mobile menu implementation would go here
+                    console.log('Mobile menu clicked');
+                });
+            }
+            
+            // Initialize custom checkboxes
+            const checkboxes = document.querySelectorAll('.custom-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    this.checked = !this.checked;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
